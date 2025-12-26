@@ -1,5 +1,7 @@
 package com.org.allabolag4j;
 
+import com.org.allabolag4j.exceptions.CompanyNotFoundException;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -47,7 +49,7 @@ public class RequestClient {
         return response;
       }
 
-      throw new IllegalArgumentException("Received no company data in response for orgNr: " + orgNr);
+      throw new CompanyNotFoundException(orgNr);
 
     } catch (InterruptedException e) {
       Thread.currentThread().interrupt();

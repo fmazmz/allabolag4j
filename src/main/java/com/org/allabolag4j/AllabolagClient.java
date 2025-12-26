@@ -1,9 +1,13 @@
 package com.org.allabolag4j;
 
+import java.io.IOException;
 import java.net.CookieManager;
 import java.net.http.HttpClient;
 import java.net.http.HttpResponse;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.org.allabolag4j.exceptions.AllabolagClientException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -38,8 +42,13 @@ public class AllabolagClient {
     this.requestClient = new RequestClient(client);
   }
 
-  public CompanyWrapper getCompany(String orgNr) throws Exception {
-    HttpResponse<String> response = requestClient.get(orgNr);
+  public CompanyWrapper getCompany(String orgNr) throws IOException {
+    HttpResponse<String> response;
+    try {
+      response = requestClient.get(orgNr);
+    } catch (IOException e) {
+        throw new AllabolagClientException("Failed to fetch company data", e);
+    }
 
     if (response.body().isEmpty()) return null;
 
@@ -48,13 +57,20 @@ public class AllabolagClient {
 
     if (scriptTag == null) return null;
 
-    JsonNode companyNode = mapper.readTree(scriptTag.data())
-      .path("props")
-      .path("pageProps")
-      .path("company");
+    try {
+      JsonNode companyNode = mapper.readTree(scriptTag.data())
+        .path("props")
+        .path("pageProps")
+        .path("company");
 
-    if (companyNode.isMissingNode()) return null;
+      if (companyNode.isMissingNode()) return null;
+      return new CompanyWrapper(companyNode);
 
-    return new CompanyWrapper(companyNode);
+    } catch (JsonParseException e) {
+        throw new IOException("Failed to parse JSON", e);
+    }
+    catch (JsonProcessingException e) {
+      throw new AllabolagClientException("Failed to parse JSON", e);
+    }
   }
 }
