@@ -3,13 +3,22 @@
 ![License](https://img.shields.io/github/license/fmazmz/allabolag4j)
 [![JitPack](https://img.shields.io/jitpack/v/github/fmazmz/allabolag4j)](https://jitpack.io/#fmazmz/allabolag4j)
 
-Allabolag4J is a lightweight Java SDK for fetching company information from [Allabolag.se](https://www.allabolag.se).
-It wraps the JSON data from the website into easy-to-use Java objects, allowing developers to access company details programmatically.
+Allabolag4J is a lightweight Java library for fetching company information from [Allabolag.se](https://www.allabolag.se).
+It wraps parsed JSON data from the website into easy-to-use Java objects, allowing developers to access company details programmatically.
 
 ## Features
 
-- Fetch company data by organization number
-- Access company name, business unit type, industries (SNI), and location... (more coming soon)
+- Fetch company data by **organization number (orgNr)**
+- Access company details:
+  - **Name**
+  - **Organization number**
+  - **Business unit type**
+  - **Industries (SNI codes)**
+  - **Adress**
+  - **Marketing protection status**
+- Retrieve **full JSON representation** of the company for advanced use cases
+- Lightweight and minimal dependencies (**Jsoup** + **Jackson Databind**)
+- Ready-to-use **Java objects**, no manual JSON parsing required
 
 ## Requirements
 - Java 25
