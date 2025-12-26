@@ -11,6 +11,20 @@ import org.jsoup.nodes.Element;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
+/**
+ * Client for fetching company data from Allabolag.se.
+ * Provides structured access via CompanyWrapper.
+ *
+ * <p>Usage example:
+ * <pre>{@code
+ * AllabolagClient client = new AllabolagClient();
+ * CompanyWrapper company = client.getCompany("5562334804");
+ * }</pre>
+ *
+ * @author Firas M.
+ * @version 1.0
+ */
 public class AllabolagClient {
 
   private final RequestClient requestClient;

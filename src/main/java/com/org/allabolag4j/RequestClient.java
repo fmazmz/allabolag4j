@@ -1,13 +1,23 @@
 package com.org.allabolag4j;
 
 import java.io.IOException;
-import java.net.CookieManager;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.List;
 
+
+/**
+ * HTTP client for fetching company pages from Allabolag.se.
+ * Ensures that only the page containing company data is returned.
+ * <p>
+ * Due to abstract URL creation from allabolag.se and no public API,
+ * we are forced to follow redirects to get the correct page URL and the response containing the company data.
+ *
+ *
+ * @author Firas M.
+ * @version 1.0
+ */
 public class RequestClient {
   private static final String USER_AGENT = "curl/8.5.0";
   private static final String BASE_URL = "https://allabolag.se";

@@ -1,4 +1,7 @@
-package com.org.allabolag4j;
+package com.org.allabolag4j.demo;
+
+import com.org.allabolag4j.AllabolagClient;
+import com.org.allabolag4j.CompanyWrapper;
 
 public class App {
   public static void main(String[] args) throws Exception {

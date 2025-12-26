@@ -2,9 +2,17 @@ package com.org.allabolag4j;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-
 import java.util.HashMap;
 
+
+/**
+ * Wrapper around the JSON representation of a company fetched from Allabolag.se.
+ * Provides convenient accessors for company details.
+ *
+ *
+ * @author Firas M.
+ * @version 1.0
+ */
 public class CompanyWrapper {
   private final JsonNode companyNode;
 
