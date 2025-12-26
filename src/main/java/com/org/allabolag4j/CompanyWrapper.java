@@ -20,6 +20,10 @@ public class CompanyWrapper {
     this.companyNode = companyNode;
   }
 
+  public JsonNode getAllData() {
+    return this.companyNode;
+  }
+
   public String getName() {
     return companyNode.path("name").asText(null);
   }

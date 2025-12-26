@@ -34,7 +34,6 @@ public class AllabolagClient {
     HttpClient client = HttpClient.newBuilder()
       .version(HttpClient.Version.HTTP_2)
       .followRedirects(HttpClient.Redirect.ALWAYS)
-      .cookieHandler(new CookieManager())
       .build();
     this.requestClient = new RequestClient(client);
   }
