@@ -42,12 +42,12 @@ public class RequestClient {
 
       HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
-      // Check if body contains __NEXT_DATA__ to confirm it's the final page
+      // Check if body contains __NEXT_DATA__ to confirm it's the final page after redirect
       if (response.statusCode() == 200 && response.body().contains("__NEXT_DATA__")) {
         return response;
       }
 
-      return null;
+      throw new IllegalArgumentException("Received no company data in response for orgNr: " + orgNr);
 
     } catch (InterruptedException e) {
       Thread.currentThread().interrupt();

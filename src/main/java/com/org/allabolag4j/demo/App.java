@@ -6,9 +6,10 @@ import com.org.allabolag4j.CompanyWrapper;
 public class App {
   public static void main(String[] args) throws Exception {
 
-    // ex usage "Microsoft"
+    // ex usage
     AllabolagClient client = new AllabolagClient();
-    CompanyWrapper company = client.getCompany("5562334804");
+
+    CompanyWrapper company = client.getCompany("000000000"); //Change this
 
     if (company != null) {
       System.out.println("Company name: " + company.getName());
