@@ -1,4 +1,7 @@
 # Allabolag4J
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/fmazmz/allabolag4j/allabolag4j.yml)
+![License](https://img.shields.io/github/license/fmazmz/allabolag4j)
+![JitPack](https://img.shields.io/jitpack/v/github/fmazmz/allabolag4j)
 
 Allabolag4J is a lightweight Java SDK for fetching company information from [Allabolag.se](https://www.allabolag.se).
 It wraps the JSON data from the website into easy-to-use Java objects, allowing developers to access company details programmatically.
