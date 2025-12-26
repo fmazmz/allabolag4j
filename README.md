@@ -8,6 +8,10 @@ It wraps the JSON data from the website into easy-to-use Java objects, allowing 
 - Fetch company data by organization number
 - Access company name, business unit type, industries (SNI), and location... (more coming soon)
 
+## Requirements
+- Java 25
+- Maven or Gradle
+
 ## Installation
 
 Include Allabolag4J as a dependency using JitPack:
@@ -68,27 +72,7 @@ public class Demo {
 - [Jackson Databind](https://github.com/FasterXML/jackson-databind) – for JSON parsing
 
 ## License
-
 This project is licensed under the MIT License – see the [LICENSE](https://github.com/fmazmz/allabolag4j/blob/master/LICENSE) file for details.
-
-## Contributing
-
-Contributions are welcome! To contribute:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bugfix.
-3. Make your changes and commit them.
-4. Push your branch and open a pull request.
-
-Please ensure your code is clean, follows the project structure, and includes appropriate Javadocs for new classes or methods.
-
-## Development
-
-To build the project locally:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/fmazmz/allabolag4j.git
 
 ## Author
 Firas M.
