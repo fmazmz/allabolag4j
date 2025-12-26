@@ -27,6 +27,7 @@ It wraps parsed JSON data from the website into easy-to-use Java objects, allowi
 ## Installation
 
 Include Allabolag4J as a dependency using JitPack:
+You can find the releases and available versions at [JitPack](https://jitpack.io/#fmazmz/allabolag4j)
 
 **Maven**
 ```xml
@@ -40,7 +41,7 @@ Include Allabolag4J as a dependency using JitPack:
 <dependency>
   <groupId>com.github.fmazmz</groupId>
   <artifactId>allabolag4j</artifactId>
-  <version>v1.0.0</version>
+  <version>{VERSION-TAG}</version>
 </dependency>
 ```
 
@@ -51,7 +52,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.YourUsername:allabolag4j:v1.0.0'
+    implementation 'com.github.YourUsername:allabolag4j:{VERSION-TAG}'
 }
 ```
 
