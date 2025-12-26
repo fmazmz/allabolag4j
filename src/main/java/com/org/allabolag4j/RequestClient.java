@@ -18,11 +18,11 @@ public class RequestClient {
     this.httpClient = httpClient;
   }
 
-  public HttpResponse<String> get(String orgId) throws IOException {
+  public HttpResponse<String> get(String orgNr) throws IOException {
 
     try {
 
-      URI uri = URI.create(BASE_URL + "/" + orgId);
+      URI uri = URI.create(BASE_URL + "/" + orgNr);
 
       HttpRequest request = HttpRequest.newBuilder(uri)
         .GET()
