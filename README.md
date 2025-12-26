@@ -6,11 +6,7 @@ It wraps the JSON data from the website into easy-to-use Java objects, allowing 
 ## Features
 
 - Fetch company data by organization number
-- Access company name, organization number, business unit type, and industries
-- Check if marketing protection is enabled
-- Access company location JSON
-- Minimal dependencies: Jsoup and Jackson Databind
-- Fully open-source and free to use
+- Access company name, business unit type, industries (SNI), and location... (more coming soon)
 
 ## Installation
 
