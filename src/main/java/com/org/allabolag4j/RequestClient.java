@@ -21,7 +21,7 @@ import java.net.http.HttpResponse;
  * @version 1.0
  */
 public class RequestClient {
-  private static final String USER_AGENT = "curl/8.5.0";
+  private static final String USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
   private static final String BASE_URL = "https://allabolag.se";
 
   private final HttpClient httpClient;
