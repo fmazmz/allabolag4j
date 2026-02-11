@@ -10,7 +10,7 @@ public class App {
 
 
     AllabolagClient client = new AllabolagClient();
-    CompanyWrapper company = client.getCompany("5568108988"); // Add ORG Number
+    CompanyWrapper company = client.getCompany("0000000000"); // Add ORG Number
 
     System.out.println("Company name: " + company.getName());
     System.out.println("Industries: " + company.getIndustries());
