@@ -1,9 +1,13 @@
-package com.org.allabolag4j;
+package com.org.allabolag4j.wrapper;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 public record FinancialReport(
         String year,
@@ -13,6 +17,10 @@ public record FinancialReport(
         String currency,
         List<AccountLine> accounts
 ) {
+
+    public FinancialReport {
+        accounts = List.copyOf(accounts);
+    }
 
     static FinancialReport from(JsonNode node) {
         List<AccountLine> lines = new ArrayList<>();
@@ -30,6 +38,29 @@ public record FinancialReport(
                 node.path("currency").asText(null),
                 lines
         );
+    }
+
+    public Optional<AccountLine> line(String code) {
+        for (AccountLine account : accounts) {
+            if (code.equals(account.code())) {
+                return Optional.of(account);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public String amount(String code) {
+        return line(code).map(AccountLine::amount).orElse(null);
+    }
+
+    public Map<String, String> amountsByCode() {
+        Map<String, String> byCode = new HashMap<>();
+        for (AccountLine account : accounts) {
+            if (account.code() != null) {
+                byCode.put(account.code(), account.amount());
+            }
+        }
+        return Collections.unmodifiableMap(byCode);
     }
 }
 

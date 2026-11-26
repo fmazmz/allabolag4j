@@ -60,24 +60,24 @@ dependencies {
 
 ```java
 import com.org.allabolag4j.AllabolagClient;
-import com.org.allabolag4j.CompanyWrapper;
+import com.org.allabolag4j.wrapper.CompanyWrapper;
 
 import java.io.IOException;
 
 public class Demo {
 
-  static void main(String[] args) throws IOException {
-    AllabolagClient client = new AllabolagClient();
-    CompanyWrapper company = client.getCompany("0000000000"); // Add ORG Number
+    static void main(String[] args) throws IOException {
+        AllabolagClient client = new AllabolagClient();
+        CompanyWrapper company = client.getCompany("0000000000"); // Add ORG Number
 
-    System.out.println("Company name: " + company.getName());
-    System.out.println("Industries: " + company.getIndustries());
-    System.out.println("OrgNr: " + company.getOrgNr());
-    System.out.println("Location: " + company.getLocation());
-    System.out.println("isMarketingProtected: " + company.isMarketingProtected());
-    System.out.println("Business Unit Type: " + company.getBusinessUnitType());
-    System.out.println("FULL DATA: " + company.getAllData());
-  }
+        System.out.println("Company name: " + company.getName());
+        System.out.println("Industries: " + company.getIndustries());
+        System.out.println("OrgNr: " + company.getOrgNr());
+        System.out.println("Location: " + company.getLocation());
+        System.out.println("isMarketingProtected: " + company.isMarketingProtected());
+        System.out.println("Business Unit Type: " + company.getBusinessUnitType());
+        System.out.println("FULL DATA: " + company.getAllData());
+    }
 }
 ```
 ## Dependencies

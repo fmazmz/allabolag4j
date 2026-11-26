@@ -1,13 +1,13 @@
 package com.org.allabolag4j;
 
 import java.io.IOException;
-import java.net.CookieManager;
 import java.net.http.HttpClient;
 import java.net.http.HttpResponse;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.org.allabolag4j.exceptions.AllabolagClientException;
+import com.org.allabolag4j.wrapper.CompanyWrapper;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

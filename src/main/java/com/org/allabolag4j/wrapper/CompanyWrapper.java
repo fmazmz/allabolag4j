@@ -1,10 +1,11 @@
-package com.org.allabolag4j;
+package com.org.allabolag4j.wrapper;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 
 /**
@@ -13,7 +14,7 @@ import java.util.List;
  *
  *
  * @author Firas M.
- * @version 1.0
+ * @version 1.1
  */
 public class CompanyWrapper {
     private final JsonNode companyNode;
@@ -63,6 +64,19 @@ public class CompanyWrapper {
         }
 
         return result;
+    }
+
+    public Optional<FinancialReport> financialReportForYear(String year) {
+        for (FinancialReport report : getFinancialReports()) {
+            if (year.equals(report.year())) {
+                return Optional.of(report);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public String accountAmount(String year, String code) {
+        return financialReportForYear(year).map(r -> r.amount(code)).orElse(null);
     }
 }
 
