@@ -75,7 +75,7 @@ public class CompanyWrapper {
         return Optional.empty();
     }
 
-    public String accountAmount(String year, String code) {
+    public String accountAmount(String year, SwedishFinancialCode code) {
         return financialReportForYear(year).map(r -> r.amount(code)).orElse(null);
     }
 }

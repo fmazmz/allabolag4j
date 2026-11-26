@@ -27,7 +27,8 @@ public record FinancialReport(
 
         for (JsonNode account : node.path("accounts")) {
             String amount = account.path("amount").isNull() ? null : account.path("amount").asText();
-            lines.add(new AccountLine(account.path("code").asText(null), amount));
+            SwedishFinancialCode code = SwedishFinancialCode.fromCode(account.path("code").asText());
+            lines.add(new AccountLine(code, amount));
         }
 
         return new FinancialReport(
@@ -40,7 +41,7 @@ public record FinancialReport(
         );
     }
 
-    public Optional<AccountLine> line(String code) {
+    public Optional<AccountLine> line(SwedishFinancialCode code) {
         for (AccountLine account : accounts) {
             if (code.equals(account.code())) {
                 return Optional.of(account);
@@ -49,12 +50,12 @@ public record FinancialReport(
         return Optional.empty();
     }
 
-    public String amount(String code) {
+    public String amount(SwedishFinancialCode code) {
         return line(code).map(AccountLine::amount).orElse(null);
     }
 
-    public Map<String, String> amountsByCode() {
-        Map<String, String> byCode = new HashMap<>();
+    public Map<SwedishFinancialCode, String> amountsByCode() {
+        Map<SwedishFinancialCode, String> byCode = new HashMap<>();
         for (AccountLine account : accounts) {
             if (account.code() != null) {
                 byCode.put(account.code(), account.amount());

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.org.allabolag4j.AllabolagClient;
 import com.org.allabolag4j.wrapper.CompanyWrapper;
 import com.org.allabolag4j.wrapper.FinancialReport;
+import com.org.allabolag4j.wrapper.SwedishFinancialCode;
 
 import java.util.List;
 
@@ -23,15 +24,13 @@ public class App {
         System.out.println("Location: " + company.getLocation());
         System.out.println("isMarketingProtected: " + company.isMarketingProtected());
         System.out.println("Business Unit Type: " + company.getBusinessUnitType());
-        System.out.println("FULL DATA: " + company.getAllData());
+        System.out.println("Full Company Object: " + objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(company.getAllData()));
 
         // Get all FinancialReports found for the company
         List<FinancialReport> financialReports = company.getFinancialReports();
         for (FinancialReport report : financialReports) {
             System.out.println("Report for period " + report.period() + ":");
-
-            System.out.println(objectMapper.writerWithDefaultPrettyPrinter()
-                    .writeValueAsString(report));
+            System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(report));
         }
 
         // Filter for a specific FinancialReport by year
@@ -44,6 +43,9 @@ public class App {
         System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(report.amountsByCode()));
 
         // Get a specific AccountLine by code
-        System.out.println("EBIDTA: " + report.amount("EBITDA"));
+        System.out.println("EBIDTA: " + report.amount(SwedishFinancialCode.EBITDA));
+
+        // Get a specific AccountLine amount by year and code
+        System.out.println("Soliditet 2025: " + company.accountAmount("2025", SwedishFinancialCode.EKA));
     }
 }
